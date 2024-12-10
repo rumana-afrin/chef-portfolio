@@ -10,7 +10,7 @@
     <meta name="keywords"
         content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-    <title>Chef Portfolio</title>
+    <title>Alomgir Hossen</title>
     @include('layouts.style')
     @stack('style')
 
