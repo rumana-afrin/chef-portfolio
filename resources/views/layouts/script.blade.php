@@ -38,6 +38,9 @@
      @if (Session::has('warning'))
          toastr.warning("{{ session('warning') }}");
      @endif
+     @if (Session::has('status'))
+         toastr.info("{{ session('status') }}");
+     @endif
 
      @if (@$errors->any())
          @foreach ($errors->all() as $error)
