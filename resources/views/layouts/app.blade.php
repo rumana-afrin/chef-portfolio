@@ -45,7 +45,10 @@
         <div class="page-wrapper">
 
             <!-- partial:partials/_navbar.html -->
-         @yield('content')
+            <div class="page-content">
+                @yield('content')
+            </div>
+        
             <!-- partial -->
 
             

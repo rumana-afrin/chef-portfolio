@@ -1,0 +1,43 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+} */
+.repeater-container {
+    max-width: 100%;
+    /* margin: 0 auto; */
+}
+.repeater-item {
+    max-width: 100%;
+    display: flex;
+    /* gap: 10px; */
+    margin-bottom: 10px;
+}
+.repeater-item input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.repeater-item button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.repeater-item button:hover {
+    background-color: #d32f2f;
+}
+.add-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: #2f70e9;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.add-btn:hover {
+    background-color: #388e3c;
+}

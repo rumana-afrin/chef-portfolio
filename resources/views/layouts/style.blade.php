@@ -19,6 +19,12 @@
 <link rel="stylesheet" href="{{ asset('assets/admin/vendors/flag-icon-css/css/flag-icon.min.css') }}">
 <!-- endinject -->
 
+	<!-- Plugin css for this page -->
+
+	<link rel="stylesheet" href="{{ asset('assets/admin/vendors/dropify/dist/dropify.min.css') }}">
+
+	<!-- End plugin css for this page -->
+
 <!-- Layout styles -->
 <link rel="stylesheet" href="{{ asset('assets/admin/css/demo2/style.css') }}">
 <!-- End layout styles -->
@@ -28,3 +34,11 @@
 <!-- toastr -->
 <link rel="stylesheet" href="{{ asset('assets/css/toastr.min.css') }}">
 <!--end toastr -->
+
+<!-- image-preview -->
+<link rel="stylesheet" href="{{ asset('assets/css/image-preview.css') }}">
+<!--end image-preview -->
+
+<!-- custom -->
+{{-- <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}"> --}}
+<!--end custom -->

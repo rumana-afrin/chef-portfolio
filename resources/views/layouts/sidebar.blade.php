@@ -80,6 +80,9 @@
                         <li class="nav-item">
                             <a href="pages/ui-components/accordion.html" class="nav-link">My Profile</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="pages/ui-components/accordion.html" class="nav-link">My Resume</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -107,7 +110,7 @@
             
          
             <li class="nav-item">
-                <a class="nav-link" href="#" aria-controls="homePages">
+                <a class="nav-link" href="{{route('home')}}" aria-controls="homePages">
                     <i class="link-icon" data-feather="home"></i>
                     <span class="link-title">Home</span>
                 </a>
