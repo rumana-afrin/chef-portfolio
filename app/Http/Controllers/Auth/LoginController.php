@@ -12,7 +12,7 @@ class LoginController extends Controller
    public function login(){
       return view('auth.login');
    }
-    public function index(Request $request)
+    public function loginStore(Request $request)
     {
  
        $credential = $request->validate([
@@ -24,10 +24,10 @@ class LoginController extends Controller
        if(!Auth::attempt(['email' => $credential['email'], 'password' => $credential['password']])){
           // event(new Attempting($credential, false, true));
           // return back()->withErrors(['success' => trans('auth.failed')]);
-          return back()->with('success', SOMETHING_WENT_WRONG);
+          return redirect()->back()->with('success', SOMETHING_WENT_WRONG);
        }else{
-          return view('dashboard');
-       }
+         return redirect()->route('home')->with('success', "welcome to dashboard");
+      }
     }
 
     public function logout(){

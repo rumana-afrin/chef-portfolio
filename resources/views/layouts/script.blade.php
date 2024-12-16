@@ -35,7 +35,7 @@
   <!-- End plugin js for this page -->
 
    <!-- Custom js for this page -->
-   <script src="{{ asset('assets/admin/js/dropify.js') }}"></script>
+   {{-- <script src="{{ asset('assets/admin/js/dropify.js') }}"></script> --}}
    {{-- <script src="{{ asset('assets/admin/js/tinymce.js') }}"></script> --}}
    <!-- End custom js for this page -->
 

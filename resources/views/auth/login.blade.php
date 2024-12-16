@@ -35,7 +35,7 @@
                     <a href="#" class="noble-ui-logo logo-light d-block mb-2">Alomgir<span>Hossen</span></a>
                     <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
 
-                    <form class="forms-sample" action="{{route('dashboard')}}" method="post">
+                    <form class="forms-sample" action="{{route('login.store')}}" method="post">
                       @csrf
                       
                       <div class="mb-3">

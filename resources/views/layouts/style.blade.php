@@ -21,7 +21,7 @@
 
 	<!-- Plugin css for this page -->
 
-	<link rel="stylesheet" href="{{ asset('assets/admin/vendors/dropify/dist/dropify.min.css') }}">
+	{{-- <link rel="stylesheet" href="{{ asset('assets/admin/vendors/dropify/dist/dropify.min.css') }}"> --}}
 
 	<!-- End plugin css for this page -->
 

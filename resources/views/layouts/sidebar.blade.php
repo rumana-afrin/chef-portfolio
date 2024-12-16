@@ -63,19 +63,10 @@
                 <div class="collapse" id="uiComponents">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/ui-components/accordion.html" class="nav-link">Logo</a>
+                            <a href="{{route('app-setting')}}" class="nav-link">App Setting</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/ui-components/accordion.html" class="nav-link">Social Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/accordion.html" class="nav-link">Galary</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/accordion.html" class="nav-link">Restaurent Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/accordion.html" class="nav-link">FavIcon</a>
+                            <a href="{{route('gallary')}}" class="nav-link">Gallary</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/ui-components/accordion.html" class="nav-link">My Profile</a>
