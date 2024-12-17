@@ -38,6 +38,9 @@
 <!-- image-preview -->
 <link rel="stylesheet" href="{{ asset('assets/css/image-preview.css') }}">
 <!--end image-preview -->
+<!-- image-preview -->
+<link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.min.css') }}">
+<!--end image-preview -->
 
 <!-- custom -->
 {{-- <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}"> --}}

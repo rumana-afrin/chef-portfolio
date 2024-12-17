@@ -197,33 +197,5 @@
                 alert("At least one item is required!");
             }
         }
-        // -------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------
-        // -------------------------------------------------------------------------------
-        // Add a new repeater item
-        //     function addItem(event) {
-        //         event.preventDefault(); // Prevent default button behavior
-
-        //         // Determine which button triggered the event
-        //         const button = event.target;
-        //         const repeaterContainer = button.closest('.repeater-container');
-        //         const repeater = repeaterContainer.querySelector('#repeater, #skill-repeater'); //The querySelector() method searches inside the identified repeater-container for either an element with the ID #repeater or #skill-repeater.
-
-        //         // Create the new item
-        //         const newItem = document.createElement('div');
-        //         newItem.className = 'repeater-item d-flex';
-        //         newItem.innerHTML = `
-    //     <input class="form-control w-90 mt-2" type="text" name="dynamicField[]" placeholder="Enter Value" />
-    //     <button type="button" class="remove-btn btn btn-primary ms-4 mt-2" onclick="removeItem(event, this)">
-    //         <i data-feather="x-circle"></i>
-    //     </button>
-    // `;
-
-        //         // Append the new item to the correct repeater
-        //         repeater.appendChild(newItem);
-
-        //         // Re-render Feather icons
-        //         feather.replace();
-        //     }
     </script>
 @endpush

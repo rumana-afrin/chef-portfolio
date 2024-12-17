@@ -18,6 +18,7 @@
 
  <!-- Custom js for this page -->
  <script src="{{ asset('assets/admin/js/dashboard-dark.js') }}"></script>
+ <script src="{{ asset('assets/js/custom.js') }}"></script>
  <!-- End custom js for this page -->
 
  <!-- toastr -->
@@ -26,18 +27,20 @@
 
  <!-- toastr -->
  <script src="{{ asset('assets/js/image-preview.js') }}"></script>
+
  <!--end toastr -->
+
+ <!-- sweetalert2 -->
+ <script src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script>
+ <script src="{{ asset('assets/js/sweetalert2.min.js') }}"></script>
+ <!--end sweetalert2 -->
 
   <!-- Plugin js for this page -->
   <script src="{{ asset('assets/admin/vendors/dropify/dist/dropify.min.js') }}"></script>
-  {{-- <script src="{{ asset('assets/admin/vendors/tinymce/tinymce.min.js') }}"></script> --}}
 
   <!-- End plugin js for this page -->
 
-   <!-- Custom js for this page -->
-   {{-- <script src="{{ asset('assets/admin/js/dropify.js') }}"></script> --}}
-   {{-- <script src="{{ asset('assets/admin/js/tinymce.js') }}"></script> --}}
-   <!-- End custom js for this page -->
+
 
  <script>
      "use strict"

@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('gallaries', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->nullable();
+            $table->foreignId('album_id')->nullable()->default(null)->constrained('albums')->onDelete('cascade');
             $table->string('image');
             $table->timestamps();
         });

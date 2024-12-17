@@ -65,9 +65,7 @@
                         <li class="nav-item">
                             <a href="{{route('app-setting')}}" class="nav-link">App Setting</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('gallary')}}" class="nav-link">Gallary</a>
-                        </li>
+                       
                         <li class="nav-item">
                             <a href="pages/ui-components/accordion.html" class="nav-link">My Profile</a>
                         </li>
@@ -131,6 +129,30 @@
                 </div>
             </li>
             <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#photosPages" role="button"
+                    aria-expanded="false" aria-controls="photosPages">
+                    <i class="link-icon" data-feather="image"></i>
+                    <span class="link-title">Gallary</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="photosPages">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{route('album.index')}}" class="nav-link">All albums</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('album-create')}}" class="nav-link">Add Album</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('gallary-index')}}" class="nav-link">All Gallary Image</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('gallary-create')}}" class="nav-link">Add Gallary Image</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#blogPages" role="button"
                     aria-expanded="false" aria-controls="blogPages">
                     <i class="link-icon" data-feather="book-open"></i>
@@ -140,7 +162,7 @@
                 <div class="collapse" id="blogPages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/blog/404.html" class="nav-link">Food</a>
+                            <a href="#" class="nav-link">Food</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/blog/500.html" class="nav-link">Veg</a>
