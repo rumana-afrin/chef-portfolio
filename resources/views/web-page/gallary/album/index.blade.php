@@ -111,7 +111,7 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Add Image</button>
+                            <button type="submit" class="btn btn-primary">Add</button>
                         </div>
                     </form>
                 </div>
@@ -123,6 +123,9 @@
 
 @push('style')
     <style>
+          h5 {
+            color: #ffffff;
+        }
         .action-icon {
             height: 19px !important;
             width: 19px !important;

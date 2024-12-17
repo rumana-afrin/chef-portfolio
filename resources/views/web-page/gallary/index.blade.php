@@ -119,7 +119,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                        <button type="submit" class="btn btn-primary mt-4">Save</button>
                         <button type="button" class="btn btn-secondary mt-4" data-bs-dismiss="modal">Cancel</button>
                     </form>
                 </div>
@@ -178,7 +178,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                        <button type="submit" class="btn btn-primary mt-4">Add</button>
                         <button type="button" class="btn btn-secondary mt-4" data-bs-dismiss="modal">Cancel</button>
                     </form>
                 </div>

@@ -144,7 +144,7 @@
 @push('style')
     <style>
         h6 {
-            color: #4655fa;
+            color: #ffffff;
         }
     </style>
 @endpush

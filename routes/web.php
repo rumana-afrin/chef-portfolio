@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('updategallary/{id}', [GallaryController::class, 'update'])->name('gallary-update');
     Route::delete('deletegallary/{id}', [GallaryController::class, 'delete'])->name('gallary-delete');
 
+    //recipes routes
+    Route::get('recipe-banner', [SettingController::class, 'recipeBanner'])->name('recipe.banner');
 // Route::resources([
 //     'album' => AlbumController::class,
 //     'gallary' => GallaryController::class,

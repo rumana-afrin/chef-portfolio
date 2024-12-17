@@ -17,6 +17,10 @@ class SettingController extends Controller
         $data['pageTitle'] = 'App Setting';
         return view('web-page.general-setting')->with($data);
     }
+    public function recipeBanner(){
+        $data['pageTitle'] = 'Recipe Banner';
+        return view('web-page.recipes.recipe-banner')->with($data);
+    }
     public function updateSetting(Request $request)
     {
 
@@ -25,20 +29,35 @@ class SettingController extends Controller
         // dd($inpute);
         foreach ($inpute as $key => $value) {
             // $option = Setting::firstOrCreate(["option_key" => $key]);
-            $option = Setting::firstOrCreate(["option_key" => $key], ["option_value" => ""]); // Default value to prevent SQL error
+            $option = Setting::firstOrCreate(["option_key" => $key], ["option_value" => " "]); // Default value to prevent SQL error
 
             if ($request->hasFile('home_banner_image') && $key == 'home_banner_image') {
-                $upload = uploadFile('setting', $request->home_banner_image);
+                $oldFile = $option->option_value;
+                $upload = uploadFile('setting', $request->home_banner_image, $oldFile);
                 $option->option_value = $upload;
             }elseif ($request->hasFile('home_skill_image') && $key == 'home_skill_image') {
-                $upload = uploadFile('setting', $request->home_skill_image);
+                $oldFile = $option->option_value;
+                $upload = uploadFile('setting', $request->home_skill_image, $oldFile);
                 $option->option_value = $upload;
             }elseif ($request->hasFile('app_logo') && $key == 'app_logo') {
                 $oldFile = $option->option_value; // Get the old file path
                 $upload = uploadFile('setting', $request->app_logo, $oldFile);
                 $option->option_value = $upload;
             }elseif ($request->hasFile('app_favicon') && $key == 'app_favicon') {
-                $upload = uploadFile('setting', $request->app_favicon);
+                $oldFile = $option->option_value;
+                $upload = uploadFile('setting', $request->app_favicon, $oldFile);
+                $option->option_value = $upload;
+            }elseif ($request->hasFile('all_recipe_banner') && $key == 'all_recipe_banner') {
+                $oldFile = $option->option_value;
+                $upload = uploadFile('setting', $request->all_recipe_banner, $oldFile);
+                $option->option_value = $upload;
+            }elseif ($request->hasFile('vegetable_recipe_banner') && $key == 'vegetable_recipe_banner') {
+                $oldFile = $option->option_value;
+                $upload = uploadFile('setting', $request->vegetable_recipe_banner, $oldFile);
+                $option->option_value = $upload;
+            }elseif ($request->hasFile('non_veg_banner') && $key == 'non_veg_banner') {
+                $oldFile = $option->option_value;
+                $upload = uploadFile('setting', $request->non_veg_banner, $oldFile);
                 $option->option_value = $upload;
             }else {
                 $option->option_value = $value;

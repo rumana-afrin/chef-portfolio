@@ -114,16 +114,25 @@
                 <div class="collapse" id="recipePages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/recipe/404.html" class="nav-link">All</a>
+                            <a href="{{route('recipe.banner')}}" class="nav-link">Banner Image</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/recipe/500.html" class="nav-link">Veg</a>
+                            <a href="pages/recipe/404.html" class="nav-link">All carousel</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/recipe/500.html" class="nav-link">Non-Veg</a>
+                            <a href="pages/recipe/404.html" class="nav-link">Add carousel</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/recipe/500.html" class="nav-link">Baking Recipes</a>
+                            <a href="pages/recipe/500.html" class="nav-link">All Recipe Category</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/recipe/500.html" class="nav-link">Add Recipe Category</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/recipe/500.html" class="nav-link">All Recipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/recipe/500.html" class="nav-link">Add Recipe</a>
                         </li>
                     </ul>
                 </div>
