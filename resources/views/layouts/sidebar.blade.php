@@ -117,10 +117,10 @@
                             <a href="{{route('recipe.banner')}}" class="nav-link">Banner Image</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/recipe/404.html" class="nav-link">All carousel</a>
+                            <a href="{{route('all.carousel')}}" class="nav-link">All carousel</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/recipe/404.html" class="nav-link">Add carousel</a>
+                            <a href="{{route('create.carousel')}}" class="nav-link">Add carousel</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/recipe/500.html" class="nav-link">All Recipe Category</a>

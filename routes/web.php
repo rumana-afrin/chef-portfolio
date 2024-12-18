@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Webpage\AlbumController;
+use App\Http\Controllers\Webpage\CarouselController;
 use App\Http\Controllers\Webpage\GallaryController;
 use App\Http\Controllers\WebPage\HomeController;
 use App\Http\Controllers\Webpage\SettingController;
@@ -48,6 +49,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     //recipes routes
     Route::get('recipe-banner', [SettingController::class, 'recipeBanner'])->name('recipe.banner');
+    
+    Route::get('allcarousel', [CarouselController::class, 'index'])->name('all.carousel');
+    Route::get('createcarousel', [CarouselController::class, 'create'])->name('create.carousel');
+    Route::post('addcarousel', [CarouselController::class, 'store'])->name('add.carousel');
+    Route::put('updatecarousel/{id}', [CarouselController::class, 'update'])->name('carousel-update');
+    Route::delete('updatecarousel/{id}', [CarouselController::class, 'destroy'])->name('carousel-delete');
 // Route::resources([
 //     'album' => AlbumController::class,
 //     'gallary' => GallaryController::class,
