@@ -123,13 +123,13 @@
                             <a href="{{route('create.carousel')}}" class="nav-link">Add carousel</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/recipe/500.html" class="nav-link">All Recipe Category</a>
+                            <a href="{{route('all.recipe.category')}}" class="nav-link">All Recipe Category</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/recipe/500.html" class="nav-link">Add Recipe Category</a>
+                            <a href="{{route('create')}}" class="nav-link">Add Recipe Category</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/recipe/500.html" class="nav-link">All Recipe</a>
+                            <a href="{{route('all.recipe')}}" class="nav-link">All Recipe</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/recipe/500.html" class="nav-link">Add Recipe</a>

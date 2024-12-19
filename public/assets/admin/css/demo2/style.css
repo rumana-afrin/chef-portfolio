@@ -22328,8 +22328,11 @@ div.tagsinput input {
   box-shadow: none;
 }
 .tox.tox-tinymce .tox-edit-area__iframe {
-  background-color: #0c1427;
+  background-color: white;
 }
+/* .tox.tox-tinymce .tox-edit-area__iframe {
+  background-color: #0c1427;
+} */
 .tox.tox-tinymce.tox:not([dir=rtl]) .tox-toolbar__group:not(:last-of-type) {
   border-right-color: #172340;
   border-left-color: #172340;

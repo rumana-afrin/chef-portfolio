@@ -3,34 +3,34 @@
 namespace App\Http\Controllers\Webpage;
 
 use App\Http\Controllers\Controller;
-use App\Models\Carousel;
+use App\Models\RecipeCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class CarouselController extends Controller
+class RecipeCategoryController extends Controller
 {
     public function index()
     {
-        $data['pageTitle'] = 'All Carousel';
-        $data['carousels'] = Carousel::all();
-        return view('web-page.recipes.carousel.index')->with($data);
+        $data['pageTitle'] = 'Recipe Category';
+        $data['categories'] = RecipeCategory::all();
+        return view('web-page.recipes.recipe-category.index')->with($data);
     }
 
     public function create()
     {
-        $data['pageTitle'] = 'Add Carousel';
-        return view('web-page.recipes.carousel.create')->with($data);
+        $data['pageTitle'] = 'Add Recipe Category';
+        return view('web-page.recipes.recipe-category.create')->with($data);
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'image_name' => 'required|string|max:255',
+            'category_name' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
-        $carousel = new Carousel();
-        $carousel->image_name = $request->image_name;
+        $category = new RecipeCategory();
+        $category->category_name = $request->category_name;
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -41,21 +41,21 @@ class CarouselController extends Controller
             $fileName = preg_replace('[^A-Za-z1-0\-]', '', $fileName);
             $file_name = $fileName . '.' . $extension;
             $store = $image->storeAs('upload', $file_name, 'public');
-            $carousel->image = $store;
+            $category->category_image = $store;
         }
-        $carousel->save();
+        $category->save();
 
-        return redirect()->route('all.carousel')->with('success', CREATED_SUCCESSFULLY);
+        return redirect()->route('all.recipe.category')->with('success', CREATED_SUCCESSFULLY);
     }
 
     public function update(Request $request, $id){
         $request->validate([
-            'image_name' => 'required|string|max:255',
+            'category_name' => 'string|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
-        $carousel = Carousel::where('id', $id)->first();
-        $carousel->image_name = $request->image_name;
+        $category = RecipeCategory::where('id', $id)->first();
+        $category->category_name = $request->category_name;
 
         if($request->hasFile('image')){
             $image = $request->file('image');
@@ -68,26 +68,26 @@ class CarouselController extends Controller
             $store = $image->storeAs('upload', $file_name , 'public');
            
 
-            if( $carousel->image && Storage::disk('public')->exists($carousel->image)){
-                Storage::disk('public')->delete($carousel->image);
+            if( $category->category_image && Storage::disk('public')->exists($category->category_image)){
+                Storage::disk('public')->delete($category->category_image);
             }
 
-            $carousel->image = $store;
+            $category->category_image = $store;
         }
 
-        // dd($carousel);
-        $carousel->update();
-        return redirect()->route('all.carousel')->with('success', UPDATED_SUCCESSFULLY);
+        // dd($category);
+        $category->update();
+        return redirect()->route('all.recipe.category')->with('success', UPDATED_SUCCESSFULLY);
 
     }
 
     public function destroy($id){
-        $gallary = Carousel::where('id', $id)->first();
-        if($gallary->image && Storage::disk('public')->exists($gallary->image)){
-            Storage::disk('public')->delete($gallary->image);
+        $category = RecipeCategory::where('id', $id)->first();
+        if($category->category_image && Storage::disk('public')->exists($category->category_image)){
+            Storage::disk('public')->delete($category->category_image);
         }
-        $gallary->delete();
-        return redirect()->route('all.carousel')->with('success', DELETED_SUCCESSFULLY);
+        $category->delete();
+        return redirect()->route('all.recipe.category')->with('success', DELETED_SUCCESSFULLY);
 
     }
 }

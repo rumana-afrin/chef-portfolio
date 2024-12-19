@@ -6,7 +6,7 @@
                 <ol class="breadcrumb breadcrumb-dot">
                     <li class="breadcrumb-item"><a href="javascript:;">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="javascript:;">Pages</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ $pageTitle }} Page</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $pageTitle }}</li>
                 </ol>
             </nav>
         </div>
@@ -18,42 +18,40 @@
             <div class="card">
                 <div class="card-body">
                     <button type="button" class="btn btn-primary mb-1 mb-md-0" data-bs-toggle="modal"
-                        data-bs-target="#varyingModal" data-bs-whatever="@getbootstrap">Add Gallary</button>
+                        data-bs-target="#varyingModal" data-bs-whatever="@getbootstrap">Add Category</button>
                     <div class="table-responsive mt-4">
                         <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th style="width:30px;">#</th>
-                                    <th>Album Name</th>
-                                    <th>Title</th>
+                                    <th>Carousel Name</th>
                                     <th>Image</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($gallaries as $gallary)
+                                @foreach ($categories as $category)
                                     <tr>
                                         <th>{{ $loop->iteration }}</th>
-                                        <td>{{ $gallary->album->album_name }}</td>
-                                        <td>{{ $gallary->title }}</td>
-
+                                        <td>{{ $category->category_name }}</td>
                                         <td>
-                                            <img class="img-fluid" src="{{ asset('storage/' . $gallary->image) }}"
+                                            <img class="img-fluid" src="{{ asset('storage/' . $category->category_image) }}"
                                                 alt="">
                                         </td>
 
                                         <td>
-                                            {{-- <a href="#" class=""><i class="action-icon" data-feather="eye"></i></a> --}}
-                                            <a href="#" class="edit" data-item="{{ $gallary }}"
-                                                data-updateurl="{{ route('gallary-update', $gallary->id) }}"
-                                                data-updateimage="{{ getImage($gallary->image) }}"><i class="action-icon"
+                                            <a href="#" class=""><i class="action-icon" data-feather="eye"></i></a>
+                                          
+                                            <a href="#" class="edit" data-item="{{ $category }}"
+                                                data-updateurl="{{ route('recipe-category-update', $category->id) }}"
+                                                data-updateimage="{{ getImage($category->category_image) }}"><i class="action-icon"
                                                     data-feather="edit"></i></a>
 
                                             <a href="#" class="deleteItem"
-                                                data-formid="delete_form_{{ $gallary->id }}" title="delete"><i
+                                                data-formid="delete_form_{{ $category->id }}" title="delete"><i
                                                     class="action-icon" data-feather="trash-2"></i></a>
-                                            <form action="{{ route('gallary-delete', $gallary->id) }}" method="post"
-                                                id="delete_form_{{ $gallary->id }}">
+                                            <form action="{{ route('recipe-category-delete', $category->id) }}" method="post"
+                                                id="delete_form_{{ $category->id }}">
                                                 @csrf
                                                 @method('delete')
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -76,38 +74,23 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="varyingModalLabel">ADD IMAGE</h5>
+                    <h5 class="modal-title" id="varyingModalLabel">ADD Category</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('gallary-store')}}" class="forms-sample" method="post" enctype="multipart/form-data">
+                    <form action="{{route('add.recipe.category')}}" class="forms-sample" method="post" enctype="multipart/form-data">
                         @csrf
                       
                         <div class="row mb-3">
-                            <label for="album_id" class="col-sm-3 col-form-label">Album:</label>
+                            <label for="category_name" class="col-sm-3 col-form-label">Category Name</label>
                             <div class="col-sm-9">
-                                <select class="form-select @error('album_id') is-invalid @enderror" id="album_id"
-                                    name="album_id" required>
-                                    <option selected>Select Album</option>
-
-                                    @foreach ($albums as $album)
-                                        <option value="{{ $album->id }}">{{ $album->album_name }}</option>
-                                    @endforeach
-
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="title" class="col-sm-3 col-form-label">Title</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="title" name="title" placeholder="Title"
+                                <input type="text" class="form-control @error('category_name') is-invalid @enderror" id="category_name" name="category_name" placeholder="Carousel name"
                                     value="">
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="image" class="form-label">Image:</label>
+                            <label for="image" class="form-label">Category Image:</label>
                             <div class="upload-img-box">
                                 <img id="updateimage" src="{{getDefaultImage()}}">
                                 <input class="form-control" type="file" name="image" id="image" accept="image/*"
@@ -135,38 +118,25 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="varyingModalLabel">ADD IMAGE</h5>
+                    <h5 class="modal-title" id="varyingModalLabel">Update Category</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="form_action" action="" class="forms-sample" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('put')
-                        <div class="row mb-3">
-                            <label for="album_id" class="col-sm-3 col-form-label">Album:</label>
-                            <div class="col-sm-9">
-                                <select class="form-select @error('album_id') is-invalid @enderror" id="album_id"
-                                    name="album_id" required>
-                                    <option selected>Select Album</option>
-
-                                    @foreach ($albums as $album)
-                                        <option value="{{ $album->id }}">{{ $album->album_name }}</option>
-                                    @endforeach
-
-                                </select>
-                            </div>
-                        </div>
+                       
 
                         <div class="row mb-3">
-                            <label for="title" class="col-sm-3 col-form-label">Title</label>
+                            <label for="category_name" class="col-sm-3 col-form-label">Category Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="title" name="title" placeholder="Title"
+                                <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Title"
                                     value="">
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="image" class="form-label">Image:</label>
+                            <label for="image" class="form-label">Category Image:</label>
                             <div class="upload-img-box">
                                 <img id="updateImage" src="{{ getDefaultImage() }}">
                                 <input class="form-control" type="file" name="image" id="image" accept="image/*"
@@ -234,13 +204,11 @@
                 e.preventDefault();
 
                 const modal = $('#edit_modal');
-                const albumId = $(this).data('item').album_id; // Get the album_id from data attribute
-                // Set the values in the modal form fields
-                modal.find('select[name=album_id]').val(albumId);
-                modal.find('input[name=title]').val($(this).data('item').title)
+
+                modal.find('input[name=category_name]').val($(this).data('item').category_name)
 
                 let route = $(this).data('updateurl');
-                let image = $(this).data('updateimage'); 
+                let image = $(this).data('updateimage');
                console.log(image);
                
                 $('#form_action').attr("action", route)

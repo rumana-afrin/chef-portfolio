@@ -16,11 +16,6 @@
  <script src="{{ asset('assets/admin/js/template.js') }}"></script>
  <!-- endinject -->
 
- <!-- Custom js for this page -->
- <script src="{{ asset('assets/admin/js/dashboard-dark.js') }}"></script>
- <script src="{{ asset('assets/js/custom.js') }}"></script>
- <!-- End custom js for this page -->
-
  <!-- toastr -->
  <script src="{{ asset('assets/js/toastr.min.js') }}"></script>
  <!--end toastr -->
@@ -37,10 +32,14 @@
 
   <!-- Plugin js for this page -->
   <script src="{{ asset('assets/admin/vendors/dropify/dist/dropify.min.js') }}"></script>
-
+  <script src="{{ asset('assets/admin/vendors/tinymce/tinymce.min.js') }}"></script>
   <!-- End plugin js for this page -->
 
-
+ <!-- Custom js for this page -->
+ <script src="{{ asset('assets/admin/js/dashboard-dark.js') }}"></script>
+ <script src="{{ asset('assets/admin/js/tinymce.js') }}"></script>
+ <script src="{{ asset('assets/js/custom.js') }}"></script>
+ <!-- End custom js for this page -->
 
  <script>
      "use strict"

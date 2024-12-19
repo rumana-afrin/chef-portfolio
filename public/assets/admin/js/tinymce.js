@@ -1,5 +1,4 @@
-// npm package: tinymce
-// github link: https://github.com/tinymce/tinymce
+
 
 $(function() {
   'use strict';
