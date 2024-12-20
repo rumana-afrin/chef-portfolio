@@ -132,7 +132,7 @@
                             <a href="{{route('all.recipe')}}" class="nav-link">All Recipe</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/recipe/500.html" class="nav-link">Add Recipe</a>
+                            <a href="{{route('create.recipe')}}" class="nav-link">Add Recipe</a>
                         </li>
                     </ul>
                 </div>

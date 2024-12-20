@@ -69,8 +69,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Recipe routes
     Route::get('allrecipe', [RecipeController::class, 'index'])->name('all.recipe');
-    // Route::get('createrecipe', [RecipeController::class, 'create'])->name('create.recipe');
+    Route::get('recipecreate', [RecipeController::class, 'create'])->name('create.recipe');
     Route::post('addrecipe', [RecipeController::class, 'store'])->name('add.recipe');
+    Route::get('recipedetails/{id}', [RecipeController::class, 'show'])->name('recipe-details');
     Route::put('updaterecipe/{id}', [RecipeController::class, 'update'])->name('recipe-update');
     Route::delete('deleterecipe/{id}', [RecipeController::class, 'destroy'])->name('recipe-delete');
 

@@ -46,7 +46,7 @@
                                         </td>
 
                                         <td>
-                                            <a href="#" class=""><i class="action-icon"
+                                            <a href="{{route('recipe-details', $recipe->id)}}" class=""><i class="action-icon"
                                                     data-feather="eye"></i></a>
 
                                             <a href="#" class="edit" data-item="{{ $recipe }}"

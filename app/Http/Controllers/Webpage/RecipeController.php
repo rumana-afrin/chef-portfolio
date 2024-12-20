@@ -16,7 +16,11 @@ class RecipeController extends Controller
         $data['categories'] = RecipeCategory::all(); // This is fine
         return view('web-page.recipes.recipe.index')->with($data);
     }
-
+    public function create(){
+        $data['pageTitle'] = 'Add Recipes';
+        $data['categories'] = RecipeCategory::all(); // This is fine
+        return view('web-page.recipes.recipe.create')->with($data);
+    }
     public function store(Request $request)
     {
 
@@ -51,6 +55,12 @@ class RecipeController extends Controller
         return redirect()->route('all.recipe')->with('success', CREATED_SUCCESSFULLY);
     }
 
+
+    public function show($id){
+        $data['pageTitle'] = 'Recipes Details';
+        $data['recipe'] = Recipe::with('category')->where('id', $id)->first();
+        return view('web-page.recipes.recipe.show')->with($data);
+    }
     public function update(Request $request, $id){
         // dd($request->all());
         $request->validate([
@@ -64,6 +74,7 @@ class RecipeController extends Controller
         $recipe->name = $request->name;
         $recipe->recipe_category_id = $request->recipe_category_id;
         $recipe->description = $request->description;
+        $recipe->ingredients = $request->ingredients;
         $recipe->instructions = $request->instructions;
         $recipe->nutritious = $request->nutritious;
 
