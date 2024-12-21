@@ -6,6 +6,7 @@ use App\Http\Controllers\Webpage\CarouselController;
 use App\Http\Controllers\Webpage\ContactInfoController;
 use App\Http\Controllers\Webpage\GallaryController;
 use App\Http\Controllers\WebPage\HomeController;
+use App\Http\Controllers\Webpage\LanguageController;
 use App\Http\Controllers\Webpage\PersonalInfoController;
 use App\Http\Controllers\Webpage\RecipeCategoryController;
 use App\Http\Controllers\Webpage\RecipeController;
@@ -79,9 +80,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     // contact routes
     Route::get('contactinfo', [PersonalInfoController::class, 'index'])->name('contact-info');
-    // Route::get('hello/{id}', [PersonalInfoController::class, 'edit'])->name('edit-personal-info');
-    Route::put('xyzinfo/{id}', [PersonalInfoController::class, 'update'])->name('update-contact-info');
+    Route::put('updateinfo/{id}', [PersonalInfoController::class, 'update'])->name('update-contact-info');
     Route::post('storecontactinfo', [PersonalInfoController::class, 'store'])->name('store-contact-info');
+
+    // language routes
+    Route::get('alllanguage', [LanguageController::class, 'index'])->name('all-language');
+    Route::get('createlanguage', [LanguageController::class, 'create'])->name('add-language');
+    Route::post('storelanguage', [LanguageController::class, 'store'])->name('language-store');
+    Route::put('storelanguage/{id}', [LanguageController::class, 'update'])->name('language-update');
+    Route::delete('storelanguage/{id}', [LanguageController::class, 'destroy'])->name('language-delete');
 
     // Route::resources([
 //     'album' => AlbumController::class,

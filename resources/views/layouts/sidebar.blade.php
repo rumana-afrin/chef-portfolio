@@ -9,6 +9,7 @@
             <span></span>
         </div>
     </div>
+
     <div class="sidebar-body">
         <ul class="nav">
             <li class="nav-item nav-category">Main</li>
@@ -264,6 +265,12 @@
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="{{route('contact-info')}}" class="nav-link">Contact Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('all-language')}}" class="nav-link">Language</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('add-language')}}" class="nav-link">Add Language</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/about/500.html" class="nav-link">French</a>
