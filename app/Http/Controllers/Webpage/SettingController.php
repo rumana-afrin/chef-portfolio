@@ -76,6 +76,8 @@ class SettingController extends Controller
             foreach ($experiences as $exp) {
                 Experience::create(['experience' => $exp]); // Insert new record
             }
+        }else{
+            Experience::truncate(); // Delete all records
         }
 
         // Insert skills
@@ -84,6 +86,8 @@ class SettingController extends Controller
             foreach ($skills as $skill) {
                 Skill::create(['skill' => $skill]); // Insert new record
             }
+        }else{
+            Skill::truncate(); // Delete all records
         }
         return redirect()->back()->with('success', UPDATED_SUCCESSFULLY);
     }

@@ -46,7 +46,7 @@
                             </div>
                         </div>
 
-                        <h6 class="card-title text-decoration-underline fs-4 mt-4">Social Link</h6>
+                        {{-- <h6 class="card-title text-decoration-underline fs-4 mt-4">Social Link</h6>
                         <div class="row mb-3">
                             <label for="title" class="col-sm-3 col-form-label">Facebook</label>
                             <div class="col-sm-6">
@@ -88,7 +88,7 @@
                                 <input type="text" class="form-control" id="title" name="app_restaurant_url"
                                     placeholder="Title" value="{{ getOption('app_restaurant_url') }}">
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <button type="submit" class="btn btn-primary mt-4">Submit</button>

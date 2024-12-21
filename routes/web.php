@@ -3,8 +3,10 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Webpage\AlbumController;
 use App\Http\Controllers\Webpage\CarouselController;
+use App\Http\Controllers\Webpage\ContactInfoController;
 use App\Http\Controllers\Webpage\GallaryController;
 use App\Http\Controllers\WebPage\HomeController;
+use App\Http\Controllers\Webpage\PersonalInfoController;
 use App\Http\Controllers\Webpage\RecipeCategoryController;
 use App\Http\Controllers\Webpage\RecipeController;
 use App\Http\Controllers\Webpage\SettingController;
@@ -74,6 +76,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('recipedetails/{id}', [RecipeController::class, 'show'])->name('recipe-details');
     Route::put('updaterecipe/{id}', [RecipeController::class, 'update'])->name('recipe-update');
     Route::delete('deleterecipe/{id}', [RecipeController::class, 'destroy'])->name('recipe-delete');
+
+    // contact routes
+    Route::get('contactinfo', [PersonalInfoController::class, 'index'])->name('contact-info');
+    // Route::get('hello/{id}', [PersonalInfoController::class, 'edit'])->name('edit-personal-info');
+    Route::put('xyzinfo/{id}', [PersonalInfoController::class, 'update'])->name('update-contact-info');
+    Route::post('storecontactinfo', [PersonalInfoController::class, 'store'])->name('store-contact-info');
 
     // Route::resources([
 //     'album' => AlbumController::class,

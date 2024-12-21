@@ -142,6 +142,7 @@
                     <form id="form_action" action="" class="forms-sample" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('put')
+                        
                         <div class="row mb-3">
                             <label for="album_id" class="col-sm-3 col-form-label">Album:</label>
                             <div class="col-sm-9">

@@ -7,7 +7,7 @@
                 <ol class="breadcrumb breadcrumb-dot">
                     <li class="breadcrumb-item"><a href="javascript:;">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="javascript:;">Pages</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{$pageTitle}} Page</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $pageTitle }} Page</li>
                 </ol>
             </nav>
         </div>
@@ -53,6 +53,7 @@
                         <h6 class="card-title text-decoration-underline fs-4">Right Side</h6>
                         <div class="row">
                             <div class="repeater-container">
+
                                 @if (count($experiences) > 0)
                                     @foreach ($experiences as $experience)
                                         <div id="repeater">
@@ -108,7 +109,7 @@
                                             <!-- Initial Repeater Item -->
                                             <div class="repeater-item d-flex mt-2">
                                                 <input class="form-control w-90" type="text" name="home_skill[]"
-                                                    placeholder="Enter Value" value="{{$skill->skill}}" />
+                                                    placeholder="Enter Value" value="{{ $skill->skill }}" />
                                                 <button type="button" class="remove-btn btn btn-primary ms-4"
                                                     onclick="removeItem(event, this)"><i
                                                         data-feather="x-circle"></i></button>
@@ -132,7 +133,7 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                        <button type="submit" class="btn btn-primary mt-4">Save</button>
                         <button type="button" class="btn btn-secondary mt-4">Cancel</button>
                     </form>
 
@@ -183,19 +184,15 @@
         }
 
         // Remove a repeater item
-        const button = event.target;
+        // const button = event.target;
 
         function removeItem(event, button) {
+            console.log(event);
+
             event.preventDefault(); // Prevent default button behavior
             const repeaterItem = button.closest('.repeater-item');
-
-            // Check if there is more than one item before removing
-            const repeater = button.closest('#repeater, #skill-repeater');
-            if (repeater.children.length > 1) {
-                repeaterItem.remove();
-            } else {
-                alert("At least one item is required!");
-            }
+            repeaterItem.remove();
+ 
         }
     </script>
 @endpush

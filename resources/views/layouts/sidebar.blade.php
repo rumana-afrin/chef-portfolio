@@ -252,12 +252,27 @@
                     <span class="link-title">Video Recipes</span>
                 </a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="#" aria-controls="homePages">
+                <a class="nav-link" data-bs-toggle="collapse" href="#aboutPages" role="button"
+                    aria-expanded="false" aria-controls="aboutPages">
                     <i class="link-icon" data-feather="user"></i>
                     <span class="link-title">About</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
+                <div class="collapse" id="aboutPages">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{route('contact-info')}}" class="nav-link">Contact Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/about/500.html" class="nav-link">French</a>
+                        </li>
+                        
+                    </ul>
+                </div>
             </li>
+        
             <li class="nav-item">
                 <a class="nav-link" href="#" aria-controls="homePages">
                     <i class="link-icon" data-feather="map-pin"></i>
