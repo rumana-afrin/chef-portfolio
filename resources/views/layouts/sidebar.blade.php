@@ -279,7 +279,13 @@
                             <a href="{{route('create-education')}}" class="nav-link">Add Education</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/about/500.html" class="nav-link">French</a>
+                            <a href="{{route('job-objective')}}" class="nav-link">Job Objective</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('all-experiance')}}" class="nav-link">Job Experience</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('create-experiance')}}" class="nav-link">Add Job Experience</a>
                         </li>
                         
                     </ul>

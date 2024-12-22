@@ -21,10 +21,14 @@ class SettingController extends Controller
         $data['pageTitle'] = 'Recipe Banner';
         return view('web-page.recipes.recipe-banner')->with($data);
     }
+    public function jobObjective(){
+        $data['pageTitle'] = 'Recipe Banner';
+        return view('web-page.about.job-objective')->with($data);
+    }
     public function updateSetting(Request $request)
     {
 
-
+ 
         $inpute = Arr::except($request->all(), ['_token', 'home_experience', 'home_skill']);
         // dd($inpute);
         foreach ($inpute as $key => $value) {

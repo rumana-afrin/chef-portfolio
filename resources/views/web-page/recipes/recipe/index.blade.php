@@ -258,7 +258,7 @@
                         <div class="mb-3">
                             <label for="image" class="form-label">Category Image:</label>
                             <div class="upload-img-box">
-                                <img id="updateimage" src="{{ getDefaultImage() }}">
+                                <img id="updateImage" src="{{ getDefaultImage() }}">
                                 <input class="form-control" type="file" name="image" id="image"
                                     accept="image/*" onchange="previewFile(this)">
                                 <div class="upload-img-box-icon">
@@ -332,16 +332,25 @@
                 const modal = $('#edit_modal');
               
                 const category_id = $(this).data('item').recipe_category_id;
-                console.log(category_id);
+                // console.log(category_id);
 
                 modal.find('select[name=recipe_category_id]').val(category_id);
 
                 modal.find('input[name=name]').val($(this).data('item').name)
                 // For textareas, use .html() to set content with HTML tags
                 const item = $(this).data('item');
-                modal.find('textarea[name=description]').html(item.description);
-                modal.find('textarea[name=ingredients]').html(item.ingredients);
-                modal.find('textarea[name=instructions]').html(item.instructions);
+
+                modal.find('textarea[name=description]').val('');
+                modal.find('#tinymceExample_ifr').contents().find('body').html(item.description);
+                
+                modal.find('textarea[name=ingredients]').val('');
+                modal.find('#tinymceExample_ifr').contents().find('body').html(item.ingredients);
+                
+                modal.find('textarea[name=instructions]').val('');
+                modal.find('#tinymceExample_ifr').contents().find('body').html(item.instructions);
+                modal.find('textarea[name=nutritious]').val('');
+                modal.find('#tinymceExample_ifr').contents().find('body').html(item.nutritious);
+
                 modal.find('textarea[name=nutritious]').html(item.nutritious);
 
                 let route = $(this).data('updateurl');

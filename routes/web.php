@@ -7,6 +7,7 @@ use App\Http\Controllers\Webpage\ContactInfoController;
 use App\Http\Controllers\Webpage\EducationController;
 use App\Http\Controllers\Webpage\GallaryController;
 use App\Http\Controllers\WebPage\HomeController;
+use App\Http\Controllers\Webpage\JobExperienceController;
 use App\Http\Controllers\Webpage\LanguageController;
 use App\Http\Controllers\Webpage\PersonalInfoController;
 use App\Http\Controllers\Webpage\RecipeCategoryController;
@@ -97,6 +98,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('storeeducation', [EducationController::class, 'store'])->name('store-education');
     Route::put('updateeducation/{id}', [EducationController::class, 'update'])->name('education-update');
     Route::delete('deleteeducation/{id}', [EducationController::class, 'destroy'])->name('education-delete');
+   
+    // job objective routes
+    Route::get('job-objective', [SettingController::class, 'jobObjective'])->name('job-objective');
+
+    //Experiance routes
+    Route::get('allexperiance', [JobExperienceController::class, 'index'])->name('all-experiance');
+    Route::get('createexperiance', [JobExperienceController::class, 'create'])->name('create-experiance');
+    Route::post('storeexperiance', [JobExperienceController::class, 'store'])->name('store-experiance');
+    Route::put('updateexperiance/{id}', [JobExperienceController::class, 'update'])->name('update-experiance');
+    Route::delete('deleteexperiance/{id}', [JobExperienceController::class, 'destroy'])->name('job_experience-delete');
+
 
     // Route::resources([
 //     'album' => AlbumController::class,

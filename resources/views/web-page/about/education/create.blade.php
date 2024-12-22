@@ -12,7 +12,7 @@
             </nav>
         </div>
 
-        <div class="col-md-6 stretch-card">
+        <div class="col-md-12 stretch-card">
             <div class="card">
                 <div class="card-body">
 
