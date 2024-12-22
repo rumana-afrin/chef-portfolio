@@ -273,6 +273,12 @@
                             <a href="{{route('add-language')}}" class="nav-link">Add Language</a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{route('all-education')}}" class="nav-link">Education</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('create-education')}}" class="nav-link">Add Education</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="pages/about/500.html" class="nav-link">French</a>
                         </li>
                         

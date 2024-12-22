@@ -6,7 +6,7 @@
                 <ol class="breadcrumb breadcrumb-dot">
                     <li class="breadcrumb-item"><a href="javascript:;">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="javascript:;">Pages</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ $pageTitle }} Page</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $pageTitle }}</li>
                 </ol>
             </nav>
         </div>

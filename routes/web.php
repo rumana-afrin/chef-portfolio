@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Webpage\AlbumController;
 use App\Http\Controllers\Webpage\CarouselController;
 use App\Http\Controllers\Webpage\ContactInfoController;
+use App\Http\Controllers\Webpage\EducationController;
 use App\Http\Controllers\Webpage\GallaryController;
 use App\Http\Controllers\WebPage\HomeController;
 use App\Http\Controllers\Webpage\LanguageController;
@@ -89,6 +90,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('storelanguage', [LanguageController::class, 'store'])->name('language-store');
     Route::put('storelanguage/{id}', [LanguageController::class, 'update'])->name('language-update');
     Route::delete('storelanguage/{id}', [LanguageController::class, 'destroy'])->name('language-delete');
+
+    //Education routes
+    Route::get('alleduction',[EducationController::class, 'index'])->name('all-education');
+    Route::get('createeduction',[EducationController::class, 'create'])->name('create-education');
+    Route::post('storeeducation', [EducationController::class, 'store'])->name('store-education');
+    Route::put('updateeducation/{id}', [EducationController::class, 'update'])->name('education-update');
+    Route::delete('deleteeducation/{id}', [EducationController::class, 'destroy'])->name('education-delete');
 
     // Route::resources([
 //     'album' => AlbumController::class,
