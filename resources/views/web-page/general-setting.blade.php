@@ -19,7 +19,36 @@
                     <form action="{{ route('setting') }}" class="forms-sample" method="post" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="row">
+                            <label for="app_logo" class="col-sm-3 col-form-label">App Logo</label>
+                            <div class="col-sm-6">
+                                <div class="upload-img-box img-fluid">
+                                    <img id="updateImageUrl" src="{{ getImage(getOption('app_logo')) }}" width="200" height="200">
+                                    <input class="form-control" type="file" name="app_logo" id="homeBannerImage"
+                                        accept="image/*" onchange="previewFile(this)">
+                                    <div class="upload-img-box-icon">
+                                        <i class="bi bi-camera-fill"></i>
+                                        <p class="m-0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <label for="app_Favicon" class="col-sm-3 col-form-label">App Favicon</label>
+                            <div class="col-sm-6">
+                                <div class="upload-img-box img-fluid">
+                                    <img id="updateImageUrl" src="{{ getImage(getOption('app_favicon')) }}" width="200" height="200">
+                                    <input class="form-control" type="file" name="app_favicon" id="homeBannerImage"
+                                        accept="image/*" onchange="previewFile(this)">
+                                    <div class="upload-img-box-icon">
+                                        <i class="bi bi-camera-fill"></i>
+                                        <p class="m-0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- <div class="row mb-3">
                             <div class="col-md-6">
                                 <h6 class="card-title text-decoration-underline fs-4">App Logo</h6>
                                 <div class="upload-img-box img-fluid">
@@ -44,7 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         {{-- <h6 class="card-title text-decoration-underline fs-4 mt-4">Social Link</h6>
                         <div class="row mb-3">

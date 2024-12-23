@@ -9,6 +9,7 @@ use App\Http\Controllers\Webpage\GallaryController;
 use App\Http\Controllers\WebPage\HomeController;
 use App\Http\Controllers\Webpage\JobExperienceController;
 use App\Http\Controllers\Webpage\LanguageController;
+use App\Http\Controllers\Webpage\MessageController;
 use App\Http\Controllers\Webpage\PersonalInfoController;
 use App\Http\Controllers\Webpage\RecipeCategoryController;
 use App\Http\Controllers\Webpage\RecipeController;
@@ -108,6 +109,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('storeexperiance', [JobExperienceController::class, 'store'])->name('store-experiance');
     Route::put('updateexperiance/{id}', [JobExperienceController::class, 'update'])->name('update-experiance');
     Route::delete('deleteexperiance/{id}', [JobExperienceController::class, 'destroy'])->name('job_experience-delete');
+
+    //Message Routes
+    Route::get('allmessage', [MessageController::class, 'index'])->name('all-message');
+    // Route::get('createmessage', [SettingController::class, 'createMessage'])->name('create-message');
+    Route::post('storemessage', [MessageController::class,'store'])->name('store-message');
+    // Route::put('updatemessage/{id}', [SettingController::class, 'updateMessage'])->name('update-message');
+    Route::delete('deletemessage/{id}', [MessageController::class, 'destroy'])->name('message-delete');
 
 
     // Route::resources([

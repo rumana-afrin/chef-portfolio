@@ -264,7 +264,7 @@
                 <div class="collapse" id="aboutPages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{route('contact-info')}}" class="nav-link">Contact Info</a>
+                            <a href="{{route('contact-info')}}" class="nav-link">Personal Info</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('all-language')}}" class="nav-link">Language</a>
@@ -293,11 +293,19 @@
             </li>
         
             <li class="nav-item">
-                <a class="nav-link" href="#" aria-controls="homePages">
+                <a class="nav-link" href="{{route('contact-info')}}" aria-controls="homePages">
                     <i class="link-icon" data-feather="map-pin"></i>
                     <span class="link-title">Contact</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('all-message')}}" aria-controls="homePages">
+                    <i class="link-icon" data-feather="map-pin"></i>
+                    <span class="link-title">Message</span>
+                </a>
+            </li>
+
             <li class="nav-item nav-category">Docs</li>
             <li class="nav-item">
                 <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank"
