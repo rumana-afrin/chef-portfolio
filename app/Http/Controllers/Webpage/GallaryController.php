@@ -15,14 +15,12 @@ class GallaryController extends Controller
         $data['pageTitle'] = 'All Gallary';
         $data['gallaries'] = Gallary::all();
         $data['albums'] = Album::all();
-
         return view('web-page.gallary.index')->with($data);
     }
     public function create()
     {
         $data['pageTitle'] = 'Add Gallary';
         $data['albums'] = Album::all();
-
         return view('web-page.gallary.create')->with($data);
     }
 

@@ -12,12 +12,16 @@ class LanguageController extends Controller
     {
         $data['pageTitle'] = 'Language';
         $data['languages'] = Language::all();
+        $data['showMenu'] = 'show'; 
+        $data['activeSubMenu'] = 'active';
         return view('web-page.about.language.index')->with($data);
     }
 
     public function create()
     {
         $data['pageTitle'] = 'Add Language';
+        $data['showMenu'] = 'show'; 
+        $data['activeSubMenu'] = 'active';
         return view('web-page.about.language.create')->with($data);
     }
     public function store(Request $request)

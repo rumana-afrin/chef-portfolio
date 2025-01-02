@@ -8,6 +8,8 @@ $(function() {
     tinymce.init({
       selector: '#tinymceExample',
       min_height: 350,
+      branding: false,
+      statusbar: false, 
       default_text_color: 'red',
       plugins: [
         'advlist', 'autoresize', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'pagebreak',

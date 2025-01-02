@@ -12,6 +12,8 @@ class RecipeCategoryController extends Controller
     public function index()
     {
         $data['pageTitle'] = 'Recipe Category';
+        $data['showMenu'] = 'show'; 
+        $data['activeSubMenu'] = 'active';
         $data['categories'] = RecipeCategory::all();
         return view('web-page.recipes.recipe-category.index')->with($data);
     }
@@ -19,6 +21,8 @@ class RecipeCategoryController extends Controller
     public function create()
     {
         $data['pageTitle'] = 'Add Recipe Category';
+        $data['showMenu'] = 'show'; 
+        $data['activeSubMenu'] = 'active';
         return view('web-page.recipes.recipe-category.create')->with($data);
     }
 

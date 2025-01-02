@@ -12,6 +12,8 @@ class PersonalInfoController extends Controller
     public function index()
     {
         $data['pageTitle'] = 'Personal Information';
+        $data['showMenu'] = 'show'; 
+        $data['activeSubMenu'] = 'active';
         $data['personalInfos'] = PersonalInfo::all();  // Fetch the first record from the personal_infos table.
         return view('web-page.about.personal-info.index')->with($data);  // Load the contact-info.index view with the data array.
     }
@@ -63,6 +65,8 @@ class PersonalInfoController extends Controller
     public function edit($id)
     {
         $data['pageTitle'] = 'Personal Information';
+        $data['showMenu'] = 'show'; 
+        $data['activeSubMenu'] = 'active';
         $data['personalInfo'] = PersonalInfo::where('id', $id)->first();  // Fetch the first record from the personal_infos table.
         return view('web-page.about.personal-info.edit')->with($data);  // Load the contact-info.index view with the data array.
     }

@@ -11,6 +11,8 @@ class MessageController extends Controller
     public function index()
     {
         $data['pageTitle'] = 'All Messages';
+        $data['showMenu'] = 'show'; 
+        $data['activeSubMenu'] = 'active';
         $data['messages'] = Message::all();
         return view('web-page.message.index')->with($data);
     }

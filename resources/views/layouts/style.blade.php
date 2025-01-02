@@ -29,7 +29,8 @@
 <link rel="stylesheet" href="{{ asset('assets/admin/css/demo2/style.css') }}">
 <!-- End layout styles -->
 
-<link rel="shortcut icon" href="{{ asset('assets/admin/images/favicon.png') }}" />
+{{-- <link rel="shortcut icon" href="{{ asset('assets/admin/images/favicon.png') }}" /> --}}
+<link rel="shortcut icon" href="{{  getImage(getOption('app_favicon')) }}" />
 
 <!-- toastr -->
 <link rel="stylesheet" href="{{ asset('assets/css/toastr.min.css') }}">
@@ -45,3 +46,4 @@
 <!-- custom -->
 {{-- <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}"> --}}
 <!--end custom -->
+

@@ -15,14 +15,20 @@ class SettingController extends Controller
 
     public function appSetting(){
         $data['pageTitle'] = 'App Setting';
+        $data['showSettingMenu'] = 'show'; 
+        $data['activeSettingSubMenu'] = 'active';
         return view('web-page.general-setting')->with($data);
     }
     public function recipeBanner(){
         $data['pageTitle'] = 'Recipe Banner';
+        $data['showMenu'] = 'show'; 
+        $data['activeSubMenu'] = 'active';
         return view('web-page.recipes.recipe-banner')->with($data);
     }
     public function jobObjective(){
         $data['pageTitle'] = 'Recipe Banner';
+        $data['showMenu'] = 'show'; 
+        $data['activeSubMenu'] = 'active';
         return view('web-page.about.job-objective')->with($data);
     }
     public function updateSetting(Request $request)
@@ -62,6 +68,14 @@ class SettingController extends Controller
             }elseif ($request->hasFile('non_veg_banner') && $key == 'non_veg_banner') {
                 $oldFile = $option->option_value;
                 $upload = uploadFile('setting', $request->non_veg_banner, $oldFile);
+                $option->option_value = $upload;
+            }elseif ($request->hasFile('non_veg_leftsidebanner') && $key == 'non_veg_leftsidebanner') {
+                $oldFile = $option->option_value;
+                $upload = uploadFile('setting', $request->non_veg_leftsidebanner, $oldFile);
+                $option->option_value = $upload;
+            }elseif ($request->hasFile('non_veg_rightsidebanner') && $key == 'non_veg_rightsidebanner') {
+                $oldFile = $option->option_value;
+                $upload = uploadFile('setting', $request->non_veg_rightsidebanner, $oldFile);
                 $option->option_value = $upload;
             }else {
                 $option->option_value = $value;

@@ -12,13 +12,25 @@ class RecipeController extends Controller
 {
     public function index(){
         $data['pageTitle'] = 'All Recipes';
-        $data['recipes'] = Recipe::with('category')->get(); // Fixed here
-        $data['categories'] = RecipeCategory::all(); // This is fine
+        $data['recipes'] = Recipe::with('category')->get(); 
+        $data['categories'] = RecipeCategory::all(); 
+        $data['showrecipeMenu'] = 'show'; 
+        $data['activeAllRecipeSubMenu'] = 'active';
         return view('web-page.recipes.recipe.index')->with($data);
+    }
+    public function edit($id){
+        $data['recipe'] = Recipe::find($id);
+        $data['pageTitle'] = 'Edit Recipes';
+        $data['categories'] = RecipeCategory::all(); 
+        $data['showrecipeMenu'] = 'show';
+        $data['activeAllRecipeSubMenu'] = 'active';
+        return view('web-page.recipes.recipe.edit')->with($data);
     }
     public function create(){
         $data['pageTitle'] = 'Add Recipes';
-        $data['categories'] = RecipeCategory::all(); // This is fine
+        $data['categories'] = RecipeCategory::all(); 
+        $data['showrecipeMenu'] = 'show'; 
+        $data['activeAddRecipeSubMenu'] = 'active';
         return view('web-page.recipes.recipe.create')->with($data);
     }
     public function store(Request $request)
@@ -58,6 +70,8 @@ class RecipeController extends Controller
 
     public function show($id){
         $data['pageTitle'] = 'Recipes Details';
+        $data['showrecipeMenu'] = 'show'; 
+        $data['activeAllRecipeSubMenu'] = 'active';
         $data['recipe'] = Recipe::with('category')->where('id', $id)->first();
         return view('web-page.recipes.recipe.show')->with($data);
     }

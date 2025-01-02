@@ -9,7 +9,6 @@
             <span></span>
         </div>
     </div>
-
     <div class="sidebar-body">
         <ul class="nav">
             <li class="nav-item nav-category">Main</li>
@@ -56,15 +55,15 @@
             <li class="nav-item nav-category">Settings</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button"
-                    aria-expanded="false" aria-controls="uiComponents"> <i ></i>
+                    aria-expanded="{{ @$showSettingMenu == "show" ? 'true' : 'false' }}" aria-controls="uiComponents"> <i ></i>
                     <i class="link-icon" data-feather="settings"></i>
                     <span class="link-title">general Settings</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="uiComponents">
+                <div class="collapse {{ @$showSettingMenu }}" id="uiComponents">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{route('app-setting')}}" class="nav-link">App Setting</a>
+                            <a href="{{route('app-setting')}}" class="nav-link {{@$activeSettingSubMenu}}">App Setting</a>
                         </li>
                        
                         <li class="nav-item">
@@ -106,38 +105,40 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#recipePages" role="button"
-                    aria-expanded="false" aria-controls="recipePages">
+                <a class="nav-link" data-bs-toggle="collapse" href="#recipe" role="button"
+                    aria-expanded="{{ @$showrecipeMenu == "show" ? 'true' : 'false' }}" aria-controls="recipe">
                     <i class="link-icon mdi mdi-food-variant"></i>
                     <span class="link-title">Recipes</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="recipePages">
+                <div class="collapse {{ @$showrecipeMenu }}" id="recipe">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{route('recipe.banner')}}" class="nav-link">Banner Image</a>
+                            <a href="{{ route('recipe.banner') }}" class="nav-link">Banner Image</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('all.carousel')}}" class="nav-link">All carousel</a>
+                            <a href="{{ route('all.carousel') }}" class="nav-link">All carousel</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('create.carousel')}}" class="nav-link">Add carousel</a>
+                            <a href="{{ route('create.carousel') }}" class="nav-link">Add carousel</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('all.recipe.category')}}" class="nav-link">All Recipe Category</a>
+                            <a href="{{ route('all.recipe.category') }}" class="nav-link">All Recipe Category</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('create')}}" class="nav-link">Add Recipe Category</a>
+                            <a href="{{ route('create') }}" class="nav-link">Add Recipe Category</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('all.recipe')}}" class="nav-link">All Recipe</a>
+                            <a href="{{ route('all.recipe') }}" class="nav-link {{ @$activeAllRecipeSubMenu }}">All Recipe</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('create.recipe')}}" class="nav-link">Add Recipe</a>
+                            <a href="{{ route('create.recipe') }}" class="nav-link {{ @$activeAddRecipeSubMenu }}">Add Recipe</a>
                         </li>
                     </ul>
                 </div>
             </li>
+            
+            
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#photosPages" role="button"
                     aria-expanded="false" aria-controls="photosPages">
@@ -301,17 +302,8 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="{{route('all-message')}}" aria-controls="homePages">
-                    <i class="link-icon" data-feather="map-pin"></i>
+                    <i class="link-icon" data-feather="mail"></i>
                     <span class="link-title">Message</span>
-                </a>
-            </li>
-
-            <li class="nav-item nav-category">Docs</li>
-            <li class="nav-item">
-                <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank"
-                    class="nav-link">
-                    <i class="link-icon" data-feather="hash"></i>
-                    <span class="link-title">Documentation</span>
                 </a>
             </li>
         </ul>

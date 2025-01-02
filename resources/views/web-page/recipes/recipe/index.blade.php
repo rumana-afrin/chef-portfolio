@@ -46,12 +46,10 @@
                                         </td>
 
                                         <td>
-                                            <a href="{{route('recipe-details', $recipe->id)}}" class=""><i class="action-icon"
-                                                    data-feather="eye"></i></a>
+                                            <a href="{{ route('recipe-details', $recipe->id) }}" class=""><i
+                                                    class="action-icon" data-feather="eye"></i></a>
 
-                                            <a href="#" class="edit" data-item="{{ $recipe }}"
-                                                data-updateurl="{{ route('recipe-update', $recipe->id) }}"
-                                                data-updateimage="{{ getImage($recipe->image) }}"><i class="action-icon"
+                                            <a href="{{ route('recipe-edit', $recipe->id) }}"><i class="action-icon"
                                                     data-feather="edit"></i></a>
 
                                             <a href="#" class="deleteItem"
@@ -185,92 +183,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="form_action" action="" class="forms-sample" method="post"
-                        enctype="multipart/form-data">
-                        @csrf
-                        @method('put')
-
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-sm-3 col-form-label">Recipe Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                    id="name" name="name" placeholder="Recipe name" value="">
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="category_id" class="col-sm-3 col-form-label">Recipe Category:</label>
-                            <div class="col-sm-9">
-                                <select class="form-select @error('recipe_category_id') is-invalid @enderror"
-                                    name="recipe_category_id" id="recipe_category_id" required>
-                                    <option selected>Select Album</option>
-
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                                    @endforeach
-
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Description</h4>
-                                        <textarea class="form-control" name="description" id="tinymceExample" rows="10"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Ingredients</h4>
-                                        <textarea class="form-control" name="ingredients" id="tinymceExample" rows="10"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Instructions</h4>
-                                        <textarea class="form-control" name="instructions" id="tinymceExample" rows="10"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Nutritious</h4>
-                                        <textarea class="form-control" name="nutritious" id="tinymceExample" rows="10"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="image" class="form-label">Category Image:</label>
-                            <div class="upload-img-box">
-                                <img id="updateImage" src="{{ getDefaultImage() }}">
-                                <input class="form-control" type="file" name="image" id="image"
-                                    accept="image/*" onchange="previewFile(this)">
-                                <div class="upload-img-box-icon">
-                                    <i class="bi bi-camera-fill"></i>
-                                    <p class="m-0"></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary mt-4">Add</button>
-                        <button type="button" class="btn btn-secondary mt-4" data-bs-dismiss="modal">Cancel</button>
-                    </form>
+                   
                 </div>
 
             </div>
@@ -321,46 +234,4 @@
             }
         }
     </style>
-@endpush
-@push('script')
-    <script>
-        $(function() {
-            'use strict'
-            $('.edit').on('click', function(e) {
-                e.preventDefault();
-
-                const modal = $('#edit_modal');
-              
-                const category_id = $(this).data('item').recipe_category_id;
-                // console.log(category_id);
-
-                modal.find('select[name=recipe_category_id]').val(category_id);
-
-                modal.find('input[name=name]').val($(this).data('item').name)
-                // For textareas, use .html() to set content with HTML tags
-                const item = $(this).data('item');
-
-                modal.find('textarea[name=description]').val('');
-                modal.find('#tinymceExample_ifr').contents().find('body').html(item.description);
-                
-                modal.find('textarea[name=ingredients]').val('');
-                modal.find('#tinymceExample_ifr').contents().find('body').html(item.ingredients);
-                
-                modal.find('textarea[name=instructions]').val('');
-                modal.find('#tinymceExample_ifr').contents().find('body').html(item.instructions);
-                modal.find('textarea[name=nutritious]').val('');
-                modal.find('#tinymceExample_ifr').contents().find('body').html(item.nutritious);
-
-                modal.find('textarea[name=nutritious]').html(item.nutritious);
-
-                let route = $(this).data('updateurl');
-                let image = $(this).data('updateimage');
-                console.log(image);
-
-                $('#form_action').attr("action", route)
-                $('#updateImage').attr("src", image)
-                modal.modal('show')
-            })
-        })
-    </script>
 @endpush
