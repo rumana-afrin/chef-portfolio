@@ -20,9 +20,9 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <h6 class="card-title text-decoration-underline fs-4">Banner Image</h6>
+                            <h6 class="col-md-3 card-title text-decoration-underline fs-4">Banner Image</h6>
 
-                            <div class="upload-img-box">
+                            <div class="col-md-9 upload-img-box">
                                 <img id="updateImageUrl" src="{{ getimage(getOption('home_banner_image')) }}">
                                 <input class="form-control" type="file" name="home_banner_image" id="homeBannerImage"
                                     accept="image/*" onchange="previewFile(this)">
@@ -87,18 +87,23 @@
                         {{-- -----------------------------------------skill--------------- --}}
                         <div class="row mb-3 mt-4">
                             <h6 class="card-title text-decoration-underline fs-4">Skill Image</h6>
+                            <div class="d-flex justify-content-center">
+                                <div class="col-6">
 
-                            <div class="upload-img-box">
-
-                                <img id="updateImageUrl" src="{{ getimage(getOption('home_skill_image')) }}">
-                                <input class="form-control" type="file" name="home_skill_image" id="homeBannerImage"
-                                    accept="image/*" onchange="previewFile(this)">
-                                <div class="upload-img-box-icon">
-                                    <i class="bi bi-camera-fill"></i>
-                                    <p class="m-0"></p>
+                                    <div class="upload-img-box">
+    
+                                        <img id="updateImageUrl" src="{{ getimage(getOption('home_skill_image')) }}">
+                                        <input class="form-control" type="file" name="home_skill_image" id="homeBannerImage"
+                                            accept="image/*" onchange="previewFile(this)">
+                                        <div class="upload-img-box-icon">
+                                            <i class="bi bi-camera-fill"></i>
+                                            <p class="m-0"></p>
+                                        </div>
+    
+                                    </div>
                                 </div>
-
                             </div>
+                            
                             {{-- <input type="file" class="myDropify" name="home_skill_image"/> --}}
                         </div>
                         <div class="row">
@@ -192,7 +197,7 @@
             event.preventDefault(); // Prevent default button behavior
             const repeaterItem = button.closest('.repeater-item');
             repeaterItem.remove();
- 
+
         }
     </script>
 @endpush

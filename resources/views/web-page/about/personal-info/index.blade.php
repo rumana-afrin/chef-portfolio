@@ -31,6 +31,8 @@
                             </div>
                             <div class="col-6 col-md-4 info border-bottom p-3">Name :</div>
                             <div class="col-6 col-md-8 border-bottom border-start p-3">{{ $info->name }}</div>
+                            <div class="col-6 col-md-4 info border-bottom p-3">Designation :</div>
+                            <div class="col-6 col-md-8 border-bottom border-start p-3">{{ $info->designation }}</div>
                             <div class=" col-6 col-md-4 info border-bottom p-3">Address :</div>
                             <div class=" col-6 col-md-8 border-bottom border-start p-3">{{ $info->address }}</div>
                             <div class=" col-6 col-md-4 info border-bottom p-3">Phone :</div>

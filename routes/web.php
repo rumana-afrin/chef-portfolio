@@ -118,7 +118,6 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::put('updatemessage/{id}', [SettingController::class, 'updateMessage'])->name('update-message');
     Route::delete('delete-message/{id}', [MessageController::class, 'destroy'])->name('message-delete');
 
-
     // Route::resources([
 //     'album' => AlbumController::class,
 //     'gallary' => GallaryController::class,

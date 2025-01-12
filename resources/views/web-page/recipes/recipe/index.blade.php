@@ -183,7 +183,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                   
+
                 </div>
 
             </div>
@@ -212,26 +212,31 @@
         .table {
             table-layout: fixed;
             width: 100%;
-            height: auto;
+            /* height: auto; */
         }
 
-        .table td,
-        .table th {
-            white-space: normal;
-            text-wrap: break-word;
-            padding: 5px;
+        .responsive-description {
+            white-space: nowrap;
+            display: table-cell;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
+        @media (max-width: 600px) {
+            .responsive-description {
+                display: none;
+            }
+            .table td,
+            .table th {
+                white-space: normal;
+                text-wrap: break-word;
+                padding: 5px;
+            }
         }
 
         /* Default: Hide the "Description" column */
-        .responsive-description {
-            display: none;
-        }
 
         /* Show the "Description" column when screen width is at least 786px */
-        @media (min-width: 786px) {
-            .responsive-description {
-                display: table-cell;
-            }
-        }
     </style>
 @endpush

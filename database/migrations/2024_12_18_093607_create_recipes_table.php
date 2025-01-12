@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignId('recipe_category_id')->constrained('recipe_categories')->onDelete('cascade');
             $table->text('description');
             $table->text('ingredients')->nullable();
-            $table->text('instructions')->nullable();   
-            $table->text('nutritious')->nullable();   
+            $table->text('instructions')->nullable();
+            $table->text('nutritious')->nullable();
             $table->string('image');
             $table->timestamps();
         });
@@ -30,5 +30,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('recipes');
+
     }
 };

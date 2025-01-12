@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('category_image');
             $table->timestamps();
         });
+
+
     }
 
     /**
@@ -25,5 +27,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('recipe_categories');
+        // Schema::disableForeignKeyConstraints();
+        // Schema::dropIfExists('recipe_categories');
+        // Schema::enableForeignKeyConstraints();
     }
 };

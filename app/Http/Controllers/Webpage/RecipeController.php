@@ -10,26 +10,29 @@ use Illuminate\Support\Facades\Storage;
 
 class RecipeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $data['pageTitle'] = 'All Recipes';
-        $data['recipes'] = Recipe::with('category')->get(); 
-        $data['categories'] = RecipeCategory::all(); 
-        $data['showrecipeMenu'] = 'show'; 
+        $data['recipes'] = Recipe::with('category')->get();
+        $data['categories'] = RecipeCategory::all();
+        $data['showrecipeMenu'] = 'show';
         $data['activeAllRecipeSubMenu'] = 'active';
         return view('web-page.recipes.recipe.index')->with($data);
     }
-    public function edit($id){
+    public function edit($id)
+    {
         $data['recipe'] = Recipe::find($id);
         $data['pageTitle'] = 'Edit Recipes';
-        $data['categories'] = RecipeCategory::all(); 
+        $data['categories'] = RecipeCategory::all();
         $data['showrecipeMenu'] = 'show';
         $data['activeAllRecipeSubMenu'] = 'active';
         return view('web-page.recipes.recipe.edit')->with($data);
     }
-    public function create(){
+    public function create()
+    {
         $data['pageTitle'] = 'Add Recipes';
-        $data['categories'] = RecipeCategory::all(); 
-        $data['showrecipeMenu'] = 'show'; 
+        $data['categories'] = RecipeCategory::all();
+        $data['showrecipeMenu'] = 'show';
         $data['activeAddRecipeSubMenu'] = 'active';
         return view('web-page.recipes.recipe.create')->with($data);
     }
@@ -41,6 +44,9 @@ class RecipeController extends Controller
             'name' => 'required|string|max:255',
             'recipe_category_id' => 'required',
             'description' => 'required',
+            'ingredients' => 'nullable',
+            'instructions' => 'nullable',
+            'nutritious' => 'nullable',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
@@ -48,6 +54,7 @@ class RecipeController extends Controller
         $recipe->name = $request->name;
         $recipe->recipe_category_id = $request->recipe_category_id;
         $recipe->description = $request->description;
+        $recipe->ingredients = $request->ingredients;
         $recipe->instructions = $request->instructions;
         $recipe->nutritious = $request->nutritious;
 
@@ -68,20 +75,25 @@ class RecipeController extends Controller
     }
 
 
-    public function show($id){
+    public function show($id)
+    {
         $data['pageTitle'] = 'Recipes Details';
-        $data['showrecipeMenu'] = 'show'; 
+        $data['showrecipeMenu'] = 'show';
         $data['activeAllRecipeSubMenu'] = 'active';
         $data['recipe'] = Recipe::with('category')->where('id', $id)->first();
         return view('web-page.recipes.recipe.show')->with($data);
     }
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         // dd($request->all());
         $request->validate([
             'name' => 'required|string|max:255',
             'recipe_category_id' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+            'ingredients' => 'nullable',
+            'instructions' => 'nullable',
+            'nutritious' => 'nullable',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
         $recipe = Recipe::where('id', $id)->first();
@@ -102,7 +114,7 @@ class RecipeController extends Controller
             $file_name = $fileName . '.' . $extension;
             $store = $image->storeAs('upload', $file_name, 'public');
 
-            if( $recipe->image && Storage::disk('public')->exists($recipe->image)){
+            if ($recipe->image && Storage::disk('public')->exists($recipe->image)) {
                 Storage::disk('public')->delete($recipe->image);
             }
             $recipe->image = $store;
@@ -112,9 +124,10 @@ class RecipeController extends Controller
         return redirect()->route('all.recipe')->with('success', UPDATED_SUCCESSFULLY);
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         $recipe = Recipe::where('id', $id)->first();
-        if($recipe->image && Storage::disk('public')->exists($recipe->image)){
+        if ($recipe->image && Storage::disk('public')->exists($recipe->image)) {
             Storage::disk('public')->delete($recipe->image);
         }
 

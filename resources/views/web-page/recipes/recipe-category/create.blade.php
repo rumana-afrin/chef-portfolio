@@ -21,7 +21,7 @@
                         <div class="row mb-3">
                             <label for="category_name" class="col-sm-3 col-form-label">Category Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control @error('category_name') is-invalid @enderror" id="category_name" name="category_name" placeholder="Carousel name"
+                                <input type="text" class="form-control @error('category_name') is-invalid @enderror" id="category_name" name="category_name" placeholder="Category name"
                                     value="">
                             </div>
                         </div>

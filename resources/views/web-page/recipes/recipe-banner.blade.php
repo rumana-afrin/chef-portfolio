@@ -20,7 +20,10 @@
                         @csrf
 
                         <div class="row mt-5">
-                            <label for="title" class="col-sm-3 col-form-label mb-3">All Recipe Page Banner</label>
+                            <div class="col-md-12">
+                                <h6 class="card-title fs-4">All Recipe Page</h6>
+                            </div>
+                            <label for="title" class="col-sm-3 col-form-label">Banner</label>
                             <div class="col-sm-9 mb-3">
                                 <div class="upload-img-box img-fluid">
                                     <img id="updateImageUrl" src="{{ getImage(getOption('all_recipe_banner')) }}" width="200"
@@ -43,8 +46,8 @@
                             <div class="row mb-3">
                                 <label for="title" class="col-sm-3 col-form-label">Title</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="title" name="vagetable_page_titile"
-                                        placeholder="Title" value="{{ getOption('vagetable_page_titile') }}">
+                                    <input type="text" class="form-control" id="title" name="vegetable_page_titile"
+                                        placeholder="Title" value="{{ getOption('vegetable_page_titile') }}">
                                 </div>
                             </div>
                             <label for="title" class="col-sm-3 col-form-label mb-3">Banner</label>
